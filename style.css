@@ -1,0 +1,90 @@
+body {
+	background: #f4f6fb;
+	font-family: 'Segoe UI', Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	max-width: 500px;
+	margin: 40px auto;
+	background: #fff;
+	border-radius: 10px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+	padding: 32px 24px 24px 24px;
+}
+
+h1 {
+	text-align: center;
+	color: #2d3a4b;
+	margin-bottom: 24px;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	margin-bottom: 24px;
+}
+
+input[type="text"], input[type="date"] {
+	padding: 10px;
+	border: 1px solid #d1d5db;
+	border-radius: 5px;
+	font-size: 1rem;
+}
+
+button[type="submit"] {
+	background: #4f8cff;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	padding: 10px;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+button[type="submit"]:hover {
+	background: #2563eb;
+}
+
+#places-list {
+	list-style: none;
+	padding: 0;
+}
+
+.place-item {
+	background: #f0f4fa;
+	border-radius: 6px;
+	padding: 14px 12px;
+	margin-bottom: 12px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+	position: relative;
+}
+.place-item .date {
+	color: #6b7280;
+	font-size: 0.95em;
+	margin-left: 6px;
+}
+.place-item .notes {
+	display: block;
+	color: #374151;
+	margin-top: 4px;
+	font-size: 0.98em;
+}
+.delete-btn {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	background: #ff4f4f;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	padding: 4px 10px;
+	cursor: pointer;
+	font-size: 0.95em;
+	transition: background 0.2s;
+}
+.delete-btn:hover {
+	background: #d32f2f;
+}
