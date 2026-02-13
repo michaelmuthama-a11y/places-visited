@@ -1,0 +1,52 @@
+
+// Get elements
+const form = document.getElementById('place-form');
+const nameInput = document.getElementById('place-name');
+const dateInput = document.getElementById('visit-date');
+const notesInput = document.getElementById('place-notes');
+const list = document.getElementById('places-list');
+
+// Load places from localStorage
+function loadPlaces() {
+	const places = JSON.parse(localStorage.getItem('placesVisited') || '[]');
+	list.innerHTML = '';
+	places.forEach((place, idx) => {
+		const li = document.createElement('li');
+		li.className = 'place-item';
+		li.innerHTML = `<strong>${place.name}</strong> <span class="date">(${place.date})</span><br><span class="notes">${place.notes || ''}</span> <button class="delete-btn" data-idx="${idx}">Delete</button>`;
+		list.appendChild(li);
+	});
+}
+
+// Save places to localStorage
+function savePlaces(places) {
+	localStorage.setItem('placesVisited', JSON.stringify(places));
+}
+
+// Add place
+form.addEventListener('submit', function(e) {
+	e.preventDefault();
+	const name = nameInput.value.trim();
+	const date = dateInput.value;
+	const notes = notesInput.value.trim();
+	if (!name || !date) return;
+	const places = JSON.parse(localStorage.getItem('placesVisited') || '[]');
+	places.push({ name, date, notes });
+	savePlaces(places);
+	loadPlaces();
+	form.reset();
+});
+
+// Delete place
+list.addEventListener('click', function(e) {
+	if (e.target.classList.contains('delete-btn')) {
+		const idx = e.target.getAttribute('data-idx');
+		const places = JSON.parse(localStorage.getItem('placesVisited') || '[]');
+		places.splice(idx, 1);
+		savePlaces(places);
+		loadPlaces();
+	}
+});
+
+// Initial load
+loadPlaces();
