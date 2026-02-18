@@ -7,7 +7,9 @@ const notesInput = document.getElementById('place-notes');
 const list = document.getElementById('places-list');
 
 // Load places from localStorage
+
 function loadPlaces() {
+
 	const places = JSON.parse(localStorage.getItem('placesVisited') || '[]');
 	list.innerHTML = '';
 	places.forEach((place, idx) => {
@@ -15,7 +17,8 @@ function loadPlaces() {
 		li.className = 'place-item';
 		li.innerHTML = `<strong>${place.name}</strong> <span class="date">(${place.date})</span><br><span class="notes">${place.notes || ''}</span> <button class="delete-btn" data-idx="${idx}">Delete</button>`;
 		list.appendChild(li);
-	});
+
+});
 }
 
 // Save places to localStorage
@@ -35,7 +38,9 @@ form.addEventListener('submit', function(e) {
 	savePlaces(places);
 	loadPlaces();
 	form.reset();
+
 });
+
 
 // Delete place
 list.addEventListener('click', function(e) {
@@ -46,7 +51,10 @@ list.addEventListener('click', function(e) {
 		savePlaces(places);
 		loadPlaces();
 	}
+
 });
 
 // Initial load
+
 loadPlaces();
+
