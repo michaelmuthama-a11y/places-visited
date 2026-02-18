@@ -1,3 +1,4 @@
+
 # Places Visited Tracker
 
 This is a simple website to keep track of places you have visited. You can add new places with a name, date, and optional notes. All data is stored in your browser (localStorage), so it persists between visits.
